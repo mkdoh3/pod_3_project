@@ -1,0 +1,8 @@
+<h1>Patient Index</h1>
+<% @patients.each do |patient| %>
+  <p>Name: <%=patient.name%></p>
+  <p>Phone: <%=patient.phone_number%></p>
+  <p>Age: <%=patient.age%></p>
+  <p>Address: <%=patient.address%></p>
+<% end %>
+each
