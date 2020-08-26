@@ -9,6 +9,7 @@ class PatientsController < ApplicationController
   end
   def show
     # will have a template in views/show.html file
+    @patient = Patient.find(params[:id])
    end
  
    def new
