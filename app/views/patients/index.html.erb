@@ -1,8 +1,14 @@
-<h1>Patient Index</h1>
-<% @patients.each do |patient| %>
-  <p>Name: <%=patient.name%></p>
-  <p>Phone: <%=patient.phone_number%></p>
-  <p>Age: <%=patient.age%></p>
-  <p>Address: <%=patient.address%></p>
+
+
+<%=link_to 'Add Patient', new_patient_path %>
+
+<% @patients.each do |patient|%>
+ <p>
+    Name:<%=link_to patient.name, patient_path(patient)%><br />
+    Age :<%=patient.age%>  <br />
+    Phone:<%=patient.phone_number%> <br />
+    Address:<%=patient.address%> |<%= link_to "Edit",edit_patient_path(patient)%>  |
+    <%= link_to "Delete", patient, method: :delete %>
+    </p>
+
 <% end %>
-each
