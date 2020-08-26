@@ -1,8 +1,7 @@
+<%= link_to "New Patient", new_patient_url %>
+
 <h1>Patient Index</h1>
-<% @patients.each do |patient| %>
-  <p>Name: <%=patient.name%></p>
-  <p>Phone: <%=patient.phone_number%></p>
-  <p>Age: <%=patient.age%></p>
-  <p>Address: <%=patient.address%></p>
-<% end %>
-each
+<h3><% @patients.each do |patient| %>
+  <p><%=link_to patient.name, patient_path(patient)%></p>
+<% end %></h3>
+
