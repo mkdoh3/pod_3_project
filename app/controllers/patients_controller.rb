@@ -22,7 +22,6 @@ class PatientsController < ApplicationController
     if @patient.save
       redirect_to @patient
     else  
-      @errors = @patient.errors.full_messages 
       render "new"
     end 
   end

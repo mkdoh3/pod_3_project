@@ -1,6 +1,6 @@
 <%=link_to "Home", patients_path%>
 <h1><%=@patient.name%></h1>
-  <p><b>Phone:</b> <%=@patient.phone_number%></p>
+  <p><b>Phone:</b> <%=number_to_phone(@patient.phone_number)%></p>
   <p><b>Age:</b> <%=@patient.age%></p>
   <p><b>Address: </b><%=@patient.address%></p>
 

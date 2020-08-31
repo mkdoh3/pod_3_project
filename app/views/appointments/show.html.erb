@@ -1,0 +1,7 @@
+<h1>Appointment for <%=@appointment.patient.name%></h1>
+<h3>Patient: <%= link_to @appointment.patient.name, patient_path(@appointment.patient) if @appointment.patient%></h3>
+
+<p><%=@appointment.time%></p>
+<p><%=@appointment.date%></p>
+<p><%=@appointment.notes%></p>
+
