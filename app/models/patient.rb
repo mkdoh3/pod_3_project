@@ -5,6 +5,7 @@ class Patient < ApplicationRecord
     #validates :phone_number, length: {is: 10}
     has_many :appointments
     has_many :doctors, through: :appointments
+    
 
     before_validation :make_name_case
 

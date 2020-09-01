@@ -1,5 +1,9 @@
+<%=link_to "New Appointment", new_appointment_path%>
+
 <h1>Appointments</h1>
-<h3><% @appointments.order(:date).each do |a| %>
-  <p><%=link_to a.patient.name, appointment_path(a)%>
-  <%=a.date%></p>
+
+<h3><% @appointments.order(date: :desc).order(:time).each do |a| %>
+  <%=a.date%>
+  <li><%=link_to a.patient.name, appointment_path(a)%></li>
 <% end %></h3>
+

@@ -1,12 +1,9 @@
 <h1>New Appointment</h1> 
 
 <%=form_for @appointment do |f|%>
-    <div>
     <label>Select Established Patient</label>
-    <p><%=f.collection_select :patient_id, Patient.all, :id, :name, include_blank: true%>
-    </div></p>
-
-    <div>
+    <p><%=f.collection_select :patient_id, Patient.all, :id, :name, include_blank: true%></p>
+    
     <b><label>Or, New Patient</label></b>
         <%=f.fields_for :patients, Patient.new do |patient_field|%>
             <p><label>Name:</label></p>
@@ -18,8 +15,7 @@
             <label>Address:</label>
             <p><%=patient_field.text_area :address%></p>
         <%end%>
-    </div>
-    
+
     <h2>Appointment Details</h2>
     <label>Time: </label>
     <p><%=f.time_field :time%></p>
