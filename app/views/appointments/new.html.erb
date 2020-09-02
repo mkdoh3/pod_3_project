@@ -1,17 +1,28 @@
-<h1>New Appointments</h1>
 
-<% if @errors%>
-<p style="color:red">Sorry! <%=@errors.join(",  ")%>.</p>
-<%end%><br><br>
+<h1>New Appointment</h1>
 
-<%=form_for(@appointment) do |f|%>
-<label>Doctor ID</label>
-<%=f.number_field :doctor_id%><br><br>
-<label>Patient:</label>
-<%=f.collection_select :patient_id, Patient.all, :id, :name%><br><br>
-<label>Time:</label>
-<%=f.time_select :time%><br><br>
-<label>Notes:</label>
-<%=f.text_area :notes%><br><br>
-<%=f.submit%>
-<%end%>
+<%=form_for @appointment do |f|%>
+    <label>Select Established Patient</label>
+    <p><%=f.collection_select :patient_id, Patient.all, :id, :name, include_blank: true%></p>
+
+    <b><label>Or, New Patient</label></b>
+        <%=f.fields_for :patient, Patient.new do |patient_field|%>
+            <p><label>Name:</label></p>
+            <p><%=patient_field.text_field :name%></p>
+            <label>Phone Number: (numbers only, ex. 1234567891)</label>
+            <p><%=patient_field.phone_field :phone_number%></p>
+            <label>Age:</label>
+            <p><%=patient_field.number_field :age%></p>
+            <label>Address:</label>
+            <p><%=patient_field.text_area :address%></p>
+        <%end%>
+
+    <h2>Appointment Details</h2>
+    <label>Time: </label>
+    <p><%=f.time_field :time%></p>
+    <label>Date: </label>
+    <p><%=f.date_field :date%></p>
+    <label>Notes: </label>
+    <p><%=f.text_area :notes%></p>
+    <%=f.submit%>
+    <%end%>
