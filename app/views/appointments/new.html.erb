@@ -5,7 +5,7 @@
     <p><%=f.collection_select :patient_id, Patient.all, :id, :name, include_blank: true%></p>
     
     <b><label>Or, New Patient</label></b>
-        <%=f.fields_for :patients, Patient.new do |patient_field|%>
+        <%=f.fields_for :patient, Patient.new do |patient_field|%>
             <p><label>Name:</label></p>
             <p><%=patient_field.text_field :name%></p>
             <label>Phone Number: (numbers only, ex. 1234567891)</label>
