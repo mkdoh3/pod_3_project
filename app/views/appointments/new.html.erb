@@ -1,0 +1,17 @@
+<h1>New Appointments</h1>
+
+<% if @errors%>
+<p style="color:red">Sorry! <%=@errors.join(",  ")%>.</p>
+<%end%><br><br>
+
+<%=form_for(@appointment) do |f|%>
+<label>Doctor ID</label>
+<%=f.number_field :doctor_id%><br><br>
+<label>Patient:</label>
+<%=f.collection_select :patient_id, Patient.all, :id, :name%><br><br>
+<label>Time:</label>
+<%=f.time_select :time%><br><br>
+<label>Notes:</label>
+<%=f.text_area :notes%><br><br>
+<%=f.submit%>
+<%end%>

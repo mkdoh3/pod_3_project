@@ -2,16 +2,16 @@
 
 class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
- 
+
   def index
     @patients = Patient.all
   end
 
-  def show 
+  def show
   end
 
   def new
-    @patient = Patient.new 
+    @patient = Patient.new
   end
 
   def edit
@@ -21,16 +21,16 @@ class PatientsController < ApplicationController
     @patient = Patient.new(patient_params(:name, :phone_number, :age, :address))
     if @patient.save
       redirect_to @patient
-    else  
-      @errors = @patient.errors.full_messages 
+    else
+      @errors = @patient.errors.full_messages
       render "new"
-    end 
+    end
   end
 
   def update
     if @patient.update(patient_params(:name, :phone_number, :age, :address))
       redirect_to @patient
-    else  
+    else
       render "edit"
     end
   end
