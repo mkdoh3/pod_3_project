@@ -2,13 +2,13 @@
 
 class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
-<<<<<<< HEAD
-=======
-
->>>>>>> ce66236948d03ce022eb44d3a5b473abb28d6471
 
   def index
-    @patients = Patient.all
+    if params[:q]
+      @patients = Patient.search(params[:q])
+    else
+      @patients = Patient.all
+    end
   end
 
   def show

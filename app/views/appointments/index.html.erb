@@ -2,8 +2,8 @@
 
 <h1>Appointments</h1>
 
+Search: <% Appointments
 <h3><% @appointments.order(date: :desc).order(:time).each do |a| %>
   <%=a.date%>
   <li><%=link_to a.patient.name, appointment_path(a)%></li>
 <% end %></h3>
-
