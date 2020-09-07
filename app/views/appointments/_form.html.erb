@@ -1,12 +1,8 @@
-
-<h1>New Appointment</h1>
-
-<%=form_for @appointment do |f|%>
+<%=form_for(appointment) do |f|%>
     <label>Select Established Patient</label>
     <p><%=f.collection_select :patient_id, Patient.all, :id, :name, include_blank: true%></p>
 
-    <b><label>Or, New Patient</label></b>
-        <%= render partial: 'patients/form', locals: {appointment_patient: @appointment.patient}
+    # Not sure if I want to keep a patient association in this partial.
 
     <h2>Appointment Details</h2>
     <label>Time: </label>
