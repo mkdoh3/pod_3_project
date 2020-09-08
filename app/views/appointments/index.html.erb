@@ -2,8 +2,10 @@
 
 <h1>Appointments</h1>
 
-<h3><% @appointments.order(date: :desc).order(:time).each do |a| %>
-  <%=a.date%>
-  <li><%=link_to a.patient.name, appointment_path(a)%></li>
-<% end %></h3>
+<%@appointments.order(date: :desc).group_by(&:date).each do |date, appointment|%>
+  <h2>Date: <%=date%></h2>
+  <h3>Scheduled Appointments:</h3> <%appointment.each do |appointment|%>
+                <li><%=link_to appointment.patient.name, appointment_path(appointment)%></li>
+  <%end%>
+  <%end%>
 
