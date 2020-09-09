@@ -1,17 +1,10 @@
 <%=link_to "Home", patients_path%>
 <h1><%=@patient.name%></h1>
-  <p><b>Phone:</b> <%=number_to_phone(@patient.phone_number)%></p>
-  <p><b>Age:</b> <%=@patient.age%></p>
-  <p><b>Address: </b><%=@patient.address%></p>
-  <p><b>Appointments: </b>
-    <ul><%@patient.appointments.each do |app|%>
-      <li><%=app.date%></li>
-      <p><%=app.time%></p>
-      <p><%=app.notes%></p>
-      <p><%=app.doctor.user_name%></p>
-    <%end%></ul>
-  </p>
-
-  
-  <%=link_to 'Edit', edit_patient_path(@patient)%><br><br>
-  <%= button_to("Delete Patient", @patient, {:onclick => "return confirm('Are you sure?')", :method => :delete, :remote => true}) %>
+<p><b>Phone:</b> <%=number_to_phone(@patient.phone_number)%></p>
+<p><b>Age:</b> <%=@patient.age%></p>
+<p><b>Address: </b><%=@patient.address%></p>
+<%=link_to "All Appointments", patient_appointments_path(@patient)%>
+<%=link_to "New Appointment", new_patient_appointment_path(@patient)%>
+<%=link_to 'Edit Patient', edit_patient_path(@patient)%><br>
+<br>
+<%= button_to("Delete Patient", @patient, {:onclick => "return confirm('Are you sure?')", :method => :delete, :remote => true}) %>
