@@ -1,0 +1,11 @@
+<%=form_for(patient) do |f|%>
+    <p><label>Name:</label></p>
+    <p><%=f.text_field :name%></p>
+    <label>Phone Number: (numbers only, ex. 1234567891)</label>
+    <p><%=f.phone_field :phone_number%></p>
+    <label>Age:</label>
+    <p><%=f.number_field :age%></p>
+    <label>Address:</label>
+    <p><%=f.text_area :address%></p>
+  <%=f.submit%>
+  <%end%>

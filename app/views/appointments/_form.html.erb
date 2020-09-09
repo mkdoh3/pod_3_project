@@ -1,0 +1,15 @@
+<%=form_for(appointment) do |f|%>
+    <label>Select Established Patient</label>
+    <p><%=f.collection_select :patient_id, Patient.all, :id, :name, include_blank: true%></p>
+
+    # Not sure if I want to keep a patient association in this partial.
+
+    <h2>Appointment Details</h2>
+    <label>Time: </label>
+    <p><%=f.time_field :time%></p>
+    <label>Date: </label>
+    <p><%=f.date_field :date%></p>
+    <label>Notes: </label>
+    <p><%=f.text_area :notes%></p>
+    <%=f.submit%>
+    <%end%>
